@@ -12,11 +12,19 @@
 	<body>
 		<div class="wrapper">
 			<div class="content">
+				<header>
+					<article class="hero">
+						
+					</article>
+				</header>
 				<main>
 					<article class="calculator">
 						<h2>Рассчитайте стоимость</h2>
-						<input type="tel" id="areaInput">
-						<input type="range" id="areaRange" min="20" max="200" value="40" step="1">
+						<div class="input_group">
+							<input type="number" id="areaInput" required>
+							<label for="areaInput">Площадь</label>
+						</div>
+						<input type="range" id="areaRange" min="20" max="100" value="" step="1">
 						<p id="calcResult"></p>
 					</article>
 					<article class="application">

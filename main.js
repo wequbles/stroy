@@ -15,12 +15,12 @@ calcRange.addEventListener('input', function() {
 
 function calcUpdate() {
 	calcInput.value = calcRange.value;
-	calcResult.textContent = priceCalc();
+	calcResult.textContent = `≈ ${priceCalc()} ₽`;
 	updateRangeStyle(calcRange, fillColor, emptyColor);
 }
 function priceCalc() {
 	let squareMeterPrice = 1500;
-	return (squareMeterPrice * calcRange.value)
+	return (squareMeterPrice * calcRange.value).toLocaleString()
 }
 
 document.addEventListener('DOMContentLoaded', function() {

@@ -81,7 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
-  color: rgb(7, 7, 7);
+  color: #001a34;
   font-family: "GTEestiPro", sans-serif;
   font-weight: 400;
 }
@@ -128,8 +128,15 @@ body {
   font-display: swap;
   src: url(fonts/900gteestiprodisplay.otf) format("opentype");
 }
+.calculator #calcResult {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 26px;
+  letter-spacing: 0.4px;
+}
+
 html, body {
-  background: #FFFFFF;
+  background: rgb(246, 248, 251);
 }
 
 body {
@@ -183,8 +190,18 @@ body {
 }
 
 :root {
-  --space: 50px;
-  --space-btn: 44px;
+  --space: 24px;
+  --space_btn: 44px;
+  --white_1: #ffffff;
+  --gray_1: #b3bcc5;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: 0.4px;
+  margin: 0 0 var(--space);
 }
 
 form {
@@ -202,7 +219,7 @@ form li {
   gap: 7px;
 }
 form li:last-child {
-  margin: var(--space-btn) 0 0;
+  margin: var(--space_btn) 0 0;
 }
 form label {
   font-size: 14px;
@@ -215,27 +232,10 @@ form select {
   height: 60px;
   text-align: center;
   font-size: 20px;
-  font-weight: 500;
-  line-height: 26px;
-  border: 2px solid rgb(179, 188, 197);
+  line-height: 24px;
+  letter-spacing: 0.4px;
+  border: 2px solid var(--gray_1);
   border-radius: 4px;
-}
-form input {
-  padding: 0 18px 0;
-  width: 100%;
-  height: 60px;
-  border: 2px solid rgb(179, 188, 197);
-  border-radius: 4px;
-  font-size: 20px;
-  line-height: 26px;
-}
-form ::-webkit-input-placeholder {
-  color: rgb(179, 188, 197);
-  font-weight: 500;
-}
-form :-moz-placeholder {
-  color: rgb(179, 188, 197);
-  font-weight: 500;
 }
 form div {
   display: -webkit-box;
@@ -247,12 +247,31 @@ form div {
 button {
   max-width: 210px;
   height: 60px;
-  border-radius: 2px;
   background: rgb(0, 91, 255);
-  color: rgb(255, 255, 255);
+  border-radius: 2px;
+  color: var(--white_1);
   font-size: 18px;
   font-weight: 500;
   line-height: 26px;
+}
+
+input[type=text], input[type=tel], input[type=password], input[type=email], input[type=number] {
+  padding: 0 18px 0;
+  width: 100%;
+  height: 60px;
+  border: 2px solid var(--gray_1);
+  border-radius: 4px;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.4px;
+}
+input[type=text]::-webkit-input-placeholder, input[type=tel]::-webkit-input-placeholder, input[type=password]::-webkit-input-placeholder, input[type=email]::-webkit-input-placeholder, input[type=number]::-webkit-input-placeholder {
+  color: var(--gray_1);
+  font-weight: 400;
+}
+input[type=text]:-moz-placeholder, input[type=tel]:-moz-placeholder, input[type=password]:-moz-placeholder, input[type=email]:-moz-placeholder, input[type=number]:-moz-placeholder {
+  color: var(--gray_1);
+  font-weight: 400;
 }
 
 input[type=range] {
@@ -260,6 +279,7 @@ input[type=range] {
      -moz-appearance: none;
           appearance: none;
   width: 100%;
+  height: 16px;
   border-radius: 20px;
   cursor: pointer;
 }
@@ -277,7 +297,7 @@ input[type=range]::-webkit-slider-thumb {
   width: 26px;
   margin-top: -5px;
   background: rgb(248, 17, 85);
-  border: 4px solid rgb(255, 255, 255);
+  border: 4px solid var(--white_1);
   border-radius: 20px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -285,28 +305,56 @@ input[type=range]::-webkit-slider-thumb {
           box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
   cursor: move;
 }
+.input_group {
+  position: relative;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: 0.4px;
+}
+.input_group input {
+  padding: 18px 10px 6px;
+  height: auto;
+}
+.input_group input:focus ~ label, .input_group input:valid ~ label {
+  font-size: 12px;
+  line-height: 14px;
+  -webkit-transform: translateY(-12px);
+          transform: translateY(-12px);
+}
+.input_group label {
+  position: absolute;
+  top: 17px;
+  left: 11px;
+  -webkit-transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  color: var(--gray_1);
+  font-weight: 400;
+}
+
 main {
-  max-width: 900px;
+  max-width: 1440px;
   margin: 0 auto;
+  padding: 0 28px;
 }
 main > article {
   margin: var(--space) 0 0;
+  background: var(--white_1);
+  border-radius: 4px;
+  padding: 24px;
 }
 
-h2 {
-  font-size: 42px;
-  font-weight: 700;
-  line-height: 52px;
-  letter-spacing: -0.4px;
-  margin: 0 0 var(--space);
+.hero {
+  padding: 24px;
+  background: linear-gradient(139deg, #005BFF 0.14%, #54C1FF 100%);
 }
 
-.calculator {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+.calculator #areaInput {
+  width: 110px;
+}
+.calculator #areaRange {
+  max-width: 668px;
+  margin: 15px 0 0;
+}
+.calculator #calcResult {
+  margin: 33px 0 0;
 }
