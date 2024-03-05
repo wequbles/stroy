@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+	<head>
+		<link rel="icon" href="/img/ico.svg" type="image/svg+xml">
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Строим</title>
+
+		<link rel="stylesheet" href="style.css">
+		<script src="main.js" defer></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="content">
+				<main>
+					<article class="calculator">
+						<h2>Рассчитайте стоимость</h2>
+						<input type="tel" id="areaInput">
+						<input type="range" id="areaRange" min="20" max="200" value="40" step="1">
+						<p id="calcResult"></p>
+					</article>
+					<article class="application">
+						<h2>Оставьте заявку</h2>
+						<form id="form">
+							<ul>
+								<li>
+									<label for="name">Имя</label>
+									<input type="text" name="name" id="name" placeholder="Ваше имя" maxlength="20">
+								</li>
+								<li>
+									<label for="tel">Телефон</label>
+									<div>
+										<select id="countryCode" name="countryCode">
+											<option value="+7" title="Россия, Абхазия" selected>+7</option>
+											<option value="+374" title="Армения">+374</option>
+											<option value="+375" title="Беларусь">+375</option>
+											<option value="+996" title="Кыргыстан">+996</option>
+											<option value="+373" title="Приднестровье">+373</option>
+											<option value="+992" title="Таджикистан">+992</option>
+											<option value="+998" title="Узбекистан">+998</option>
+										</select>
+										<input type="tel" name="tel" id="tel" placeholder="Ваш номер" maxlength="10">
+									</div>
+								</li>
+								<li>
+									<label for="cmt">Комментарий</label>
+									<input type="text" name="cmt" id="cmt" placeholder="Ваш комментарий" maxlength="150">
+								</li>
+								<li>
+									<button type="submit">Отправить</button>
+								</li>
+							</ul>
+						</form>
+					</article>
+				</main>
+			</div>
+		</div>
+	</body>
+</html>
