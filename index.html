@@ -4,7 +4,7 @@
 		<link rel="icon" href="/img/ico.svg" type="image/svg+xml">
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Строим</title>
+		<title>Строим!</title>
 
 		<link rel="stylesheet" href="style.css">
 		<script src="main.js" defer></script>
@@ -20,7 +20,21 @@
 				<main>
 					<article class="calculator">
 						<h2>Рассчитайте стоимость</h2>
-						<div class="input_group">
+						<div class="row">
+							<div class="radio_button">
+								<input type="radio" id="calcRadio_1" name="calcRadio" checked>
+								<label for="calcRadio_1">Черновой</label>
+							</div>
+							<div class="radio_button">
+								<input type="radio" id="calcRadio_2" name="calcRadio">
+								<label for="calcRadio_2">Чистовой</label>
+							</div>
+							<div class="radio_button">
+								<input type="radio" id="calcRadio_3" name="calcRadio">
+								<label for="calcRadio_3">Дизайнерский</label>
+							</div>
+						</div>
+						<div class="input_with_hint">
 							<input type="number" id="areaInput" required>
 							<label for="areaInput">Площадь</label>
 						</div>
@@ -34,8 +48,8 @@
 								<li>
 									<input type="text" name="name" id="name" placeholder="Ваше имя" maxlength="20">
 								</li>
-								<li>
-									<div>
+								<li>
+									<div class="row">
 										<select id="countryCode" name="countryCode">
 											<option value="+7" title="Россия, Абхазия" selected>+7</option>
 											<option value="+374" title="Армения">+374</option>
