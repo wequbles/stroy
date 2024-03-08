@@ -4,6 +4,7 @@
 const calcInput = document.getElementById('areaInput');
 const calcRange = document.getElementById('areaRange');
 const calcResult = document.getElementById('calcResult');
+const calcRadio = document.querySelectorAll('.radio_button input[type="radio"]');
 
 calcInput.addEventListener('change', function() {
 	calcRange.value = this.value;
@@ -19,7 +20,16 @@ function calcUpdate() {
 	updateRangeStyle(calcRange);
 }
 function priceCalc() {
-	let squareMeterPrice = 1500;
+	let squareMeterPrice;
+	calcRadio.forEach(function(input) {
+		if (input.checked) {
+			squareMeterPrice = input.value;
+		}
+		input.addEventListener('input', function () {
+			squareMeterPrice = input.value;
+			calcUpdate();
+		});
+	});
 	return (squareMeterPrice * calcRange.value).toLocaleString()
 }
 
