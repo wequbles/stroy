@@ -16,7 +16,7 @@ calcRange.addEventListener('input', function() {
 function calcUpdate() {
 	calcInput.value = calcRange.value;
 	calcResult.textContent = `≈ ${priceCalc()} ₽`;
-	updateRangeStyle(calcRange, fillColor, emptyColor);
+	updateRangeStyle(calcRange);
 }
 function priceCalc() {
 	let squareMeterPrice = 1500;
@@ -28,28 +28,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 //input range
-const fillColor = "rgb(0, 91, 255)",
-	emptyColor = "rgb(232, 235, 239)";
-const rangeInputs = document.querySelectorAll('input[type="range"]');
-
-rangeInputs.forEach(input => {
-	updateRangeStyle(input, fillColor, emptyColor);
-
-	input.addEventListener('input', function () {
-		updateRangeStyle(this, fillColor, emptyColor);
-	});
-});
-
-function updateRangeStyle(input, fillColor, emptyColor) {
-	let percent = ((input.value - input.min) / (input.max - input.min)) * 100;
-	if (percent < 50) {
-		percent += 1;
-	} else if (percent > 50) {
-		percent -= 1;
-	}
-	input.style.backgroundImage = `linear-gradient(to right, ${fillColor}, ${fillColor} ${percent}%, ${emptyColor} ${percent}%)`;
+for (let e of document.querySelectorAll('input[type="range"]')) {
+	e.style.setProperty('--value', e.value);
+	e.style.setProperty('--min', e.min == '' ? '0' : e.min);
+	e.style.setProperty('--max', e.max == '' ? '100' : e.max);
+	e.addEventListener('input', () => e.style.setProperty('--value', e.value));
 }
-
+function updateRangeStyle(e) {
+	e.style.setProperty('--value', e.value);
+}
 
 // Отпрака формы
 const form = document.getElementById('form');
