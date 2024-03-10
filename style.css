@@ -81,6 +81,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 :root {
+  --isMobile: 768px;
   --gap-small: 4px;
   --gap-xsmall: 8px;
   --gap-xxsmall: 16px;
@@ -89,8 +90,8 @@ h1, h2, h3, h4, h5, h6 {
   --gap-xxlarge: 32px;
   --size_h: 48px;
   --size_h2: 16px;
-  --size_h3: 8px;
-  --size_w: 1336px;
+  --size_h3: calc(var(--size_h2) / 2);
+  --size_w: 1232px;
   --size_w2: calc(var(--size_w) / 2);
   --size_w3: calc(var(--size_w) / 3);
   --size_w4: calc(var(--size_w) / 4);
@@ -189,7 +190,7 @@ body {
   width: 8px;
   height: 8px;
 }
-@media (max-width: 425px) {
+@media (max-width: calc(var(--isMobile))) {
   ::-webkit-scrollbar {
     width: 0;
     height: 0;
@@ -230,7 +231,7 @@ body {
 }
 
 main {
-  max-width: 1440px;
+  max-width: 1336px;
   margin: 0 auto;
   padding: 0 var(--gap-xlarge);
 }
@@ -240,13 +241,12 @@ main > article {
   background: var(--white_1);
   border-radius: 4px;
 }
-@media (max-width: 425px) {
+@media (max-width: calc(var(--isMobile))) {
   main {
-    padding: 0 calc(var(--gap-xlarge) / 2);
+    padding: 0;
   }
   main > article {
     margin: calc(var(--gap-xxlarge) / 2) 0 0;
-    padding: calc(var(--gap-large) / 2);
   }
 }
 
@@ -261,7 +261,7 @@ h2 {
 form {
   max-width: var(--size_w3);
 }
-form li {
+form li:not(:last-child) {
   margin: var(--gap-xxsmall) 0 0;
 }
 form li:last-child {
@@ -375,9 +375,15 @@ button {
 [type=radio]:checked + label,
 [type=radio]:not(:checked) + label {
   position: relative;
-  padding-left: 21px;
+  height: calc(var(--size_h2) + var(--size_h3) / 2);
+  padding-left: calc(var(--size_h2) + 5px);
   cursor: pointer;
-  display: inline-block;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 [type=radio]:checked + label:before,
@@ -430,6 +436,12 @@ button {
 .hero {
   padding: 24px;
   background: linear-gradient(139deg, var(--blue_1) 0.14%, #54C1FF 100%);
+}
+
+.features ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .calculator .row {

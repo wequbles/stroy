@@ -67,7 +67,7 @@ form.addEventListener('submit', async (e) => {
 			method: 'POST',
 			body: formData // Передаем объект FormData в качестве тела запроса
 		});
-		
+
 		if (response.ok) {
 			const data = await response.json(); // Парсим JSON из ответа, если он есть
 			console.log('Успешный ответ от сервера:', data);
@@ -78,3 +78,18 @@ form.addEventListener('submit', async (e) => {
 		console.error('Ошибка при выполнении fetch запроса:', error);
 	}
 });
+
+const telephone = document.getElementById('tel');
+telephone.addEventListener('input', function() {
+	this.value = phoneFormat(this.value);
+	console.log(this.value.length)
+});
+function phoneFormat(input) {
+	input = input.replace(/\D/g,'');
+	let size = input.length;
+	if (size>0) {input="("+input}
+	if (size>3) {input=input.slice(0,4)+") "+input.slice(4,11)}
+	if (size>6) {input=input.slice(0,9)+"-" +input.slice(9)}
+	if (size>8) {input=input.slice(0,12)+"-" +input.slice(12)}
+	return input;
+}
