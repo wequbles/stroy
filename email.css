@@ -113,14 +113,14 @@ body {
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url(https://github.com/wequbles/stroy/fonts/500gteestiprodisplay.otf) format("opentype");
+  src: url(https://wequbles.github.io/stroy/fonts/500gteestiprodisplay.otf) format("opentype");
 }
 @font-face {
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url(https://github.com/wequbles/stroy/fonts/400inter.woff2) format("woff2");
+  src: url(https://wequbles.github.io/stroy/fonts/400inter.woff2) format("woff2");
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 @font-face {
@@ -128,7 +128,7 @@ body {
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url(https://github.com/wequbles/stroy/fonts/600inter.woff2) format("woff2");
+  src: url(https://wequbles.github.io/stroy/fonts/600inter.woff2) format("woff2");
   unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
 }
 html, body {
