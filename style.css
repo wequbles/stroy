@@ -576,3 +576,56 @@ button {
 .calculator #calcResult {
   margin: var(--gap-large) 0 0;
 }
+
+.logo {
+  background: transparent;
+}
+.logo h2 {
+  text-align: center;
+}
+.logo ul {
+  --column: 3;
+  --gap: var(--gap-xxlarge);
+  --size: 160px;
+  max-width: calc(var(--size) * var(--column) + var(--gap) * (var(--column) - 1));
+  padding-bottom: var(--gap-xxsmall);
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: ;
+  grid-template-columns: repeat(var(--column), var(--size));
+  grid-auto-rows: var(--size);
+  gap: var(--gap);
+  -ms-scroll-snap-type: inline mandatory;
+      scroll-snap-type: inline mandatory;
+  scroll-snap-stop: always;
+}
+@media (max-width: 768px) {
+  .logo ul {
+    grid-template-columns: repeat(auto-fill, var(--size));
+    grid-auto-flow: column;
+    overflow-x: scroll;
+  }
+}
+.logo ul::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.logo ul > li {
+  scroll-snap-align: center;
+  width: var(--size);
+  height: var(--size);
+  padding: var(--gap-xxsmall);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  background: var(--page-secondary);
+  border-radius: var(--br4);
+}
+.logo ul > li > p {
+  font-size: var(--fz20);
+  line-height: var(--lh24);
+}
