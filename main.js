@@ -79,6 +79,7 @@ form.addEventListener('submit', async (e) => {
 	}
 });
 
+// преобразование номера
 const telephone = document.getElementById('tel');
 telephone.addEventListener('input', function() {
 	this.value = phoneFormat(this.value);
@@ -93,3 +94,31 @@ function phoneFormat(input) {
 	if (size>8) {input=input.slice(0,12)+"-" +input.slice(12)}
 	return input;
 }
+
+/* Копирование номера телефона */
+const phoneNumberBlock = document.getElementById('phone_number');
+const phoneNumber = phoneNumberBlock.getAttribute('data-phone-number');
+
+phoneNumberBlock.addEventListener('click', function(event) {
+	event.preventDefault();
+	navigator.clipboard.writeText(phoneNumber) // Копируем номер телефона в буфер обмена
+		.catch(error => {
+			console.error('Ошибка копирования ' + error);
+		});
+
+	const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent); // Определяем платформу устройства
+	if (isMobileDevice) { // Если устройство мобильное, открываем приложение мобильного телефона
+		window.location.href = `tel:${phoneNumber}`;
+	} else {
+		alert('Номер телефона скопирован');
+	}
+});
+
+const emailAddressBlock = document.getElementById('emailAddress');
+const emailAddress = emailAddressBlock.getAttribute('data-email-address');
+
+emailAddressBlock.addEventListener('click', function(event) {
+	event.preventDefault();
+	const mailtoLink = 'mailto:' + emailAddress;
+	window.location.href = mailtoLink;
+});
