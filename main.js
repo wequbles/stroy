@@ -95,7 +95,8 @@ function phoneFormat(input) {
 	return input;
 }
 
-/* Копирование номера телефона */
+const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent); // Определяем платформу устройства
+/* Копирование номера телефона и email */
 const phoneNumberBlock = document.getElementById('phone_number');
 const phoneNumber = phoneNumberBlock.getAttribute('data-phone-number');
 
@@ -106,7 +107,6 @@ phoneNumberBlock.addEventListener('click', function(event) {
 			console.error('Ошибка копирования ' + error);
 		});
 
-	const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent); // Определяем платформу устройства
 	if (isMobileDevice) { // Если устройство мобильное, открываем приложение мобильного телефона
 		window.location.href = `tel:${phoneNumber}`;
 	} else {
@@ -119,6 +119,15 @@ const emailAddress = emailAddressBlock.getAttribute('data-email-address');
 
 emailAddressBlock.addEventListener('click', function(event) {
 	event.preventDefault();
-	const mailtoLink = 'mailto:' + emailAddress;
-	window.location.href = mailtoLink;
+	navigator.clipboard.writeText(emailAddress)
+		.catch(error => {
+			console.error('Ошибка копирования ' + error);
+		});
+
+	if (isMobileDevice) {
+		const mailtoLink = 'mailto:' + emailAddress;
+		window.location.href = mailtoLink;
+	} else {
+		alert('Email скопирован');
+	}
 });

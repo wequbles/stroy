@@ -306,12 +306,28 @@ footer > article, footer section {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+@media (max-width: 768px) {
+  footer > article, footer section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: var(--gap-large);
+  }
+}
 
 .separator {
-  margin-top: var(--gap-xxlarge);
-  margin-bottom: var(--gap-xxlarge);
+  --gap: var(--gap-xxlarge);
+  margin-top: var(--gap);
+  margin-bottom: var(--gap);
   border-top: var(--bd1);
   border-color: var(--el-secondary);
+}
+@media (max-width: 768px) {
+  .separator {
+    margin-top: calc(var(--gap) / 2);
+    margin-bottom: calc(var(--gap) / 2);
+  }
 }
 
 h2 {
@@ -689,7 +705,6 @@ footer .location {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  place-content: center;
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
