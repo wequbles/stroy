@@ -194,6 +194,10 @@ body {
   font-weight: var(--fw700);
 }
 
+.roadmap #slider > li > p, form label {
+  font-size: var(--fz14);
+}
+
 .companies ul > li > p, .features ul li > div > h3, .calculator #calcResult {
   font-size: var(--fz20);
   line-height: var(--lh24);
@@ -346,17 +350,24 @@ h3 {
 form {
   max-width: var(--span-4);
 }
+form li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: var(--gap-xsmall);
+}
 form li:not(:last-child) {
   margin: var(--gap-xxsmall) 0 0;
 }
 form li:last-child {
   margin: var(--gap-large) 0 0;
 }
-form li > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: var(--gap-xsmall);
+form label {
+  display: none;
+  line-height: var(--lh24);
+  letter-spacing: var(--ls04);
+  margin-top: var(--gap-small);
+  padding: 0 var(--gap-xsmall) 0 var(--gap-xsmall);
 }
 form select {
   height: var(--size_h);
@@ -563,7 +574,6 @@ button {
   text-align: center;
 }
 .roadmap #slider > li > p {
-  font-size: var(--fz14);
   padding-top: calc(var(--gap) / 4);
   opacity: var(--op06);
 }

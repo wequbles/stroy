@@ -1,183 +1,185 @@
 <!DOCTYPE html>
 <html lang="ru">
-	<head>
-		<link rel="icon" href="/img/ico.svg" type="image/svg+xml">
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>«СтроимВместе» ― строительная компания в Москве. Услуги строительства и ремонта.</title>
+<head>
+	<link rel="icon" href="/img/ico.svg" type="image/svg+xml">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>«СтроимВместе» ― строительная компания в Москве. Услуги строительства и ремонта.</title>
 
-		<link rel="stylesheet" href="style.css">
-		<script src="main.js" defer></script>
-	</head>
-	<body>
-		<div class="wrapper">
-			<div class="content">
-				<header>
-					<article class="hero"></article>
-				</header>
-				<main>
-					<article class="features">
+	<link rel="stylesheet" href="style.css">
+	<script src="front.js" defer></script>
+	<script src="back.js" defer></script>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="content">
+			<header>
+				<article class="hero"></article>
+			</header>
+			<main>
+				<article class="features">
+					<ul>
+						<li>
+							<div>
+								<h3>Работа по договору</h3>
+								<figure>
+									<picture>
+										<img alt="" loading="lazy" src="img/features_1.png">
+									</picture>
+								</figure>
+							</div>
+						</li>
+						<li>
+							<div>
+								<h3>Мастера своего дела</h3>
+								<figure>
+									<picture>
+										<img alt="" loading="lazy" src="img/features_2.png">
+									</picture>
+								</figure>
+							</div>
+						</li>
+						<li>
+							<div>
+								<h3>Все виды работ</h3>
+								<figure>
+									<picture>
+										<img alt="" loading="lazy" src="img/features_3.png">
+									</picture>
+								</figure>
+							</div>
+						</li>
+						<li>
+							<div>
+								<h3>Соотвествие стандартам</h3>
+								<figure>
+									<picture>
+										<img alt="" loading="lazy" src="img/features_4.png">
+									</picture>
+								</figure>
+							</div>
+						</li>
+						<li>
+							<div>
+								<h3>Гарантия на все работы</h3>
+								<figure>
+									<picture>
+										<img alt="" loading="lazy" src="img/features_5.png">
+									</picture>
+								</figure>
+							</div>
+						</li>
+					</ul>
+				</article>
+				<article class="roadmap">
+					<h2>Как мы работаем?</h2>
+					<ul id="slider">
+						<li>
+							<h3>Оставьте заявку</h3>
+							<p>Укажите необходимый вид работ и контактные данные</p>
+						</li>
+						<li>
+							<h3>Заключите договор</h3>
+							<p>Расскажите все пожелания и подпишите договор</p>
+						</li>
+						<li>
+							<h3>Примите работу</h3>
+							<p>Осущетвите приемку готовой работы</p>
+						</li>
+						<!-- <li>
+							<h3>Назначьте время</h3>
+							<p>Сообщите нам когда мы можем приступить к работе</p>
+						</li> -->
+					</ul>
+				</article>
+				<article class="calculator">
+					<h2>Рассчитайте стоимость</h2>
+					<div id="calcRadio">
+						<div class="radio_button">
+							<input type="radio" id="calcRadio_1" value="1500" name="calcRadio" checked>
+							<label for="calcRadio_1">Черновой</label>
+						</div>
+						<div class="radio_button">
+							<input type="radio" id="calcRadio_2" value="2200" name="calcRadio">
+							<label for="calcRadio_2">Чистовой</label>
+						</div>
+						<div class="radio_button">
+							<input type="radio" id="calcRadio_3" value="3500" name="calcRadio">
+							<label for="calcRadio_3">Дизайнерский</label>
+						</div>
+					</div>
+					<div class="input_with_hint">
+						<input type="number" id="areaInput" required>
+						<label for="areaInput">Площадь</label>
+					</div>
+					<input type="range" id="areaRange" min="20" max="100" value="40" step="1">
+					<p id="calcResult"></p>
+				</article>
+				<article class="application">
+					<h2>Оставьте заявку</h2>
+					<form id="form">
 						<ul>
 							<li>
-								<div>
-									<h3>Работа по договору</h3>
-									<figure>
-										<picture>
-											<img alt="" loading="lazy" src="img/features_1.png">
-										</picture>
-									</figure>
-								</div>
+								<input type="text" name="nameReq" placeholder="Ваше имя" maxlength="20" data-message="false">
 							</li>
+							<label id="msg_nameReq"></label>
 							<li>
-								<div>
-									<h3>Мастера своего дела</h3>
-									<figure>
-										<picture>
-											<img alt="" loading="lazy" src="img/features_2.png">
-										</picture>
-									</figure>
-								</div>
+								<select name="countryCodeReq" id="countryCode">
+									<option value="+7" title="Россия, Абхазия" selected>+7</option>
+									<option value="+374" title="Армения">+374</option>
+									<option value="+375" title="Беларусь">+375</option>
+									<option value="+996" title="Кыргыстан">+996</option>
+									<option value="+373" title="Приднестровье">+373</option>
+									<option value="+992" title="Таджикистан">+992</option>
+									<option value="+998" title="Узбекистан">+998</option>
+								</select>
+								<input type="tel" name="telReq" id="tel" placeholder="Ваш номер" maxlength="15" data-message="false">
 							</li>
+							<label id="msg_telReq"></label>
 							<li>
-								<div>
-									<h3>Все виды работ</h3>
-									<figure>
-										<picture>
-											<img alt="" loading="lazy" src="img/features_3.png">
-										</picture>
-									</figure>
-								</div>
+								<input type="text" name="messReq" placeholder="Ваш комментарий" maxlength="150" data-message="false">
 							</li>
+							<label id="msg_messReq"></label>
 							<li>
-								<div>
-									<h3>Соотвествие стандартам</h3>
-									<figure>
-										<picture>
-											<img alt="" loading="lazy" src="img/features_4.png">
-										</picture>
-									</figure>
-								</div>
-							</li>
-							<li>
-								<div>
-									<h3>Гарантия на все работы</h3>
-									<figure>
-										<picture>
-											<img alt="" loading="lazy" src="img/features_5.png">
-										</picture>
-									</figure>
-								</div>
+								<button type="submit">Отправить</button>
 							</li>
 						</ul>
-					</article>
-					<article class="roadmap">
-						<h2>Как мы работаем?</h2>
-						<ul id="slider">
-							<li>
-								<h3>Оставьте заявку</h3>
-								<p>Укажите необходимый вид работ и контактные данные</p>
-							</li>
-							<li>
-								<h3>Заключите договор</h3>
-								<p>Расскажите все пожелания и подпишите договор</p>
-							</li>
-							<li>
-								<h3>Примите работу</h3>
-								<p>Осущетвите приемку готовой работы</p>
-							</li>
-							<!-- <li>
-								<h3>Назначьте время</h3>
-								<p>Сообщите нам когда мы можем приступить к работе</p>
-							</li> -->
-						</ul>
-					</article>
-					<article class="calculator">
-						<h2>Рассчитайте стоимость</h2>
-						<div id="calcRadio">
-							<div class="radio_button">
-								<input type="radio" id="calcRadio_1" value="1500" name="calcRadio" checked>
-								<label for="calcRadio_1">Черновой</label>
-							</div>
-							<div class="radio_button">
-								<input type="radio" id="calcRadio_2" value="2200" name="calcRadio">
-								<label for="calcRadio_2">Чистовой</label>
-							</div>
-							<div class="radio_button">
-								<input type="radio" id="calcRadio_3" value="3500" name="calcRadio">
-								<label for="calcRadio_3">Дизайнерский</label>
-							</div>
-						</div>
-						<div class="input_with_hint">
-							<input type="number" id="areaInput" required>
-							<label for="areaInput">Площадь</label>
-						</div>
-						<input type="range" id="areaRange" min="20" max="100" value="40" step="1">
-						<p id="calcResult"></p>
-					</article>
-					<article class="application">
-						<h2>Оставьте заявку</h2>
-						<form id="form">
-							<ul>
-								<li>
-									<input type="text" name="name" id="name" placeholder="Ваше имя" maxlength="20">
-								</li>
-								<li>
-									<div>
-										<select id="countryCode" name="countryCode">
-											<option value="+7" title="Россия, Абхазия" selected>+7</option>
-											<option value="+374" title="Армения">+374</option>
-											<option value="+375" title="Беларусь">+375</option>
-											<option value="+996" title="Кыргыстан">+996</option>
-											<option value="+373" title="Приднестровье">+373</option>
-											<option value="+992" title="Таджикистан">+992</option>
-											<option value="+998" title="Узбекистан">+998</option>
-										</select>
-										<input type="tel" name="tel" id="tel" placeholder="Ваш номер" maxlength="15">
-									</div>
-								</li>
-								<li>
-									<input type="text" name="cmt" id="cmt" placeholder="Ваш комментарий" maxlength="150">
-								</li>
-								<li>
-									<button type="submit">Отправить</button>
-								</li>
-							</ul>
-						</form>
-					</article>
-					<article class="companies">
-						<h2>Сотрудничества</h2>
-						<ul>
-							<li><p>ПГС-Групп</p></li>
-							<li><p>МК-Групп</p></li>
-							<li><p>Милти</p></li>
-							<li><p>Первая Газовая Компания</p></li>
-							<li><p>Цитадель</p></li>
-							<li><p>Девятый трест</p></li>
-						</ul>
-					</article>
-				</main>
-				<footer>
-					<section>
-						<div class="logo">
-							<p class="logo__main">Строим Вместе</p>
-							<p class="logo__caption">Ремонтно-строительная <br>компания в Москве.</p>
-						</div>
-						<div class="contact">
-							<p id="phone_number" data-phone-number="+7 963 977 97 79">+7 963 977 97 79</p>
-							<p id="emailAddress" data-email-address="stroim.maxgroup.vmeste@bk.ru">stroim.maxgroup.vmeste@bk.ru</p>
-						</div>
-					</section>
-					<div class="separator"></div>
-					<section>
-						<p class="copyright">© CtroimBmecte.ru, 2024</p>
-						<p class="location">
-							<svg data-v-a1caf7a8="" width="24" height="24" viewBox="0 0 24 24" fill="var(--font-dark)" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.764 17.834a1 1 0 00-1.414.024A59.41 59.41 0 0112 20.143C7.142 15.64 5.5 13.043 5.5 10a6.5 6.5 0 0113 0c0 1.472-.36 2.76-1.179 4.149a1 1 0 001.723 1.015c.998-1.693 1.456-3.33 1.456-5.164a8.5 8.5 0 00-17 0c0 3.904 2.065 7.003 7.828 12.24l.672.611.673-.611a67.199 67.199 0 003.116-2.992 1 1 0 00-.025-1.414zM12 14.5a4.5 4.5 0 110-9 4.5 4.5 0 010 9zm0-2a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path></svg>
-							Москва
-						</p>
-					</section>
-					<!-- stroim.maxgroup.vmeste@bk.ru -->
-				</footer>
-			</div>
+					</form>
+				</article>
+				<article class="companies">
+					<h2>Сотрудничества</h2>
+					<ul>
+						<li><p>ПГС-Групп</p></li>
+						<li><p>МК-Групп</p></li>
+						<li><p>Милти</p></li>
+						<li><p>Первая Газовая Компания</p></li>
+						<li><p>Цитадель</p></li>
+						<li><p>Девятый трест</p></li>
+					</ul>
+				</article>
+			</main>
+			<footer>
+				<section>
+					<div class="logo">
+						<p class="logo__main">Строим Вместе</p>
+						<p class="logo__caption">Ремонтно-строительная <br>компания в Москве.</p>
+					</div>
+					<div class="contact">
+						<p id="phone_number" data-phone-number="+7 963 977 97 79">+7 963 977 97 79</p>
+						<p id="emailAddress" data-email-address="stroim.maxgroup.vmeste@bk.ru">stroim.maxgroup.vmeste@bk.ru</p>
+					</div>
+				</section>
+				<div class="separator"></div>
+				<section>
+					<p class="copyright">© CtroimBmecte.ru, 2024</p>
+					<p class="location">
+						<svg data-v-a1caf7a8="" width="24" height="24" viewBox="0 0 24 24" fill="var(--font-dark)" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.764 17.834a1 1 0 00-1.414.024A59.41 59.41 0 0112 20.143C7.142 15.64 5.5 13.043 5.5 10a6.5 6.5 0 0113 0c0 1.472-.36 2.76-1.179 4.149a1 1 0 001.723 1.015c.998-1.693 1.456-3.33 1.456-5.164a8.5 8.5 0 00-17 0c0 3.904 2.065 7.003 7.828 12.24l.672.611.673-.611a67.199 67.199 0 003.116-2.992 1 1 0 00-.025-1.414zM12 14.5a4.5 4.5 0 110-9 4.5 4.5 0 010 9zm0-2a2.5 2.5 0 100-5 2.5 2.5 0 000 5z"></path></svg>
+						Москва
+					</p>
+				</section>
+				<!-- stroim.maxgroup.vmeste@bk.ru -->
+			</footer>
 		</div>
-	</body>
+	</div>
+</body>
 </html>
